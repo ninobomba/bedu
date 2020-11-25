@@ -144,76 +144,76 @@ FROM
 
 # Dentro de la tabla offices, obtén el código de la oficina, ciudad, teléfono y país de aquellas oficinas que se encuentren en USA o France.
 
-SELECT
-	officeCode, city, phone, country
-FROM
-	offices
-WHERE
-	country IN( 'USA', 'FRANCE' );
+    SELECT
+        officeCode, city, phone, country
+    FROM
+        offices
+    WHERE
+        country IN( 'USA', 'FRANCE' );
 
 # Dentro de la tabla offices, obtén el código de la oficina, ciudad, teléfono y país de aquellas oficinas que no se encuentren en USA o France.
 
-SELECT
-	officeCode, city, phone, country
-FROM
-	offices
-WHERE
-	country NOT IN( 'USA', 'FRANCE' );
+    SELECT
+        officeCode, city, phone, country
+    FROM
+        offices
+    WHERE
+        country NOT IN( 'USA', 'FRANCE' );
 
 # Dentro de la tabla orders, obtén el número de orden, número de cliente, estado y fecha de envío de todas las órdenes con el número 10165, 10287 o 10310.
 
-SELECT
-	orderNumber, customerNumber, status, shippedDate
-FROM
-	orders
-WHERE
-	orderNumber IN (10165, 10287, 10310);
+    SELECT
+        orderNumber, customerNumber, status, shippedDate
+    FROM
+        orders
+    WHERE
+        orderNumber IN (10165, 10287, 10310);
 
 
 # Dentro de la tabla customers, obtén el apellido y nombre de cada cliente y ordena los resultados por apellido de forma ascendente.
 
-SELECT
-	contactFirstName, contactLastName
-FROM
-	customers
-ORDER BY
-	contactLastName ASC;
+    SELECT
+        contactFirstName, contactLastName
+    FROM
+        customers
+    ORDER BY
+        contactLastName ASC;
 
 # Dentro de la tabla customers, obtén el apellido y nombre de cada cliente y ordena los resultados por apellido de forma descendente.
 
-SELECT
-	contactFirstName, contactLastName
-FROM
-	customers
-ORDER BY
-	contactLastName DESC;
+    SELECT
+        contactFirstName, contactLastName
+    FROM
+        customers
+    ORDER BY
+        contactLastName DESC;
 
 # Dentro de la tabla customers, obtén el apellido y nombre de cada cliente y ordena los resultados por apellido de forma descendente y luego por nombre de forma ascendente.
 
-SELECT
-	contactFirstName, contactLastName
-FROM
-	customers
-ORDER BY
-	contactLastName DESC,
-    contactFirstName ASC;
+    SELECT
+        contactFirstName, contactLastName
+    FROM
+        customers
+    ORDER BY
+        contactLastName DESC,
+        contactFirstName ASC;
 
 # Dentro de la tabla customers, obtén el número de cliente, nombre de cliente y el límite de crédito de los cinco clientes con el límite de crédito más alto (top 5).
 
-SELECT
-	c.customerNumber, c.customerName, c.creditLimit
-FROM
-	customers c
-ORDER BY
-	creditLimit DESC
-LIMIT 5;
+    SELECT
+        c.customerNumber, c.customerName, c.creditLimit
+    FROM
+        customers c
+    ORDER BY
+        creditLimit DESC
+    LIMIT 5;
 
 # Dentro de la tabla customers, obtén el número de cliente, nombre de cliente y el límite de crédito de los cinco clientes con el límite de crédito más bajo.
 
-SELECT
-	c.customerNumber, c.customerName, c.creditLimit
-FROM
-	customers c
-ORDER BY
-	creditLimit ASC
-LIMIT 5;
+    SELECT
+        c.customerNumber, c.customerName, c.creditLimit
+    FROM
+        customers c
+    ORDER BY
+        creditLimit ASC
+    LIMIT 5;
