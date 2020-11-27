@@ -1,3 +1,3 @@
 # bedu
 
-Fernando Farfan Rivera
+Fernando Farfan Rivera.
