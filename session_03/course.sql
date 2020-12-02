@@ -1,3 +1,66 @@
+-- ¿Cuál es el nombre de los empleados que realizaron cada venta?
+
+SELECT
+	empleado.nombre, empleado.apellido_paterno, empleado.apellido_materno
+FROM
+	empleado JOIN venta ON empleado.id_empleado = venta.id_empleado;
+
+-- ¿Cuál es el nombre de los artículos que se han vendido?
+
+SELECT
+	articulo.id_articulo, articulo.nombre
+FROM
+	articulo JOIN venta ON articulo.id_articulo = venta.id_articulo;
+
+-- ¿Cuál es el total de cada venta?
+
+SELECT
+	venta.id_venta,  SUM( articulo.cantidad ) TOTAL
+FROM venta JOIN articulo
+	ON venta.id_articulo = articulo.id_articulo
+GROUP BY 1;
+
+
+
+show keys from venta;
+
+SELECT *
+FROM empleado AS e
+JOIN puesto AS p
+  ON e.id_puesto = p.id_puesto;
+
+  SELECT *
+  FROM puesto AS p
+  LEFT JOIN empleado e
+  ON p.id_puesto = e.id_puesto;
+
+  SELECT *
+  FROM empleado AS e
+  RIGHT JOIN puesto AS p
+  ON e.id_puesto = p.id_puesto;
+
+
+  SELECT v.clave, v.fecha, a.nombre producto, a.precio, concat(e.nombre, ' ', e.apellido_paterno) empleado
+  FROM venta v
+  JOIN empleado e
+    ON v.id_empleado = e.id_empleado
+  JOIN articulo a
+    ON v.id_articulo = a.id_articulo;
+
+CREATE VIEW tickets_678 AS
+(SELECT v.clave, v.fecha, a.nombre producto, a.precio, concat(e.nombre, ' ', e.apellido_paterno) empleado
+FROM venta v
+JOIN empleado e
+  ON v.id_empleado = e.id_empleado
+JOIN articulo a
+  ON v.id_articulo = a.id_articulo);
+
+  SELECT *
+  FROM tickets_678;
+
+  SELECT clave, round(sum(precio),2) total
+  FROM tickets_678
+  GROUP BY clave;
 -- ¿Cuál es el nombre de los empleados cuyo sueldo es mayor a $100,000?
 
 SELECT
