@@ -46,6 +46,7 @@
 
 -- Para estas consultas usa LEFT JOIN
 -- Obtén el número de cliente, nombre de cliente, número de orden y estado de cada cliente.
+--  ¿De qué nos sirve hacer LEFT JOIN en lugar de JOIN? La tabla de la izquierda tiene valores enontrados mientras con la derecha pueden ser nulls
 
     SELECT
         customers.customerNumber, customers.customerName,
@@ -56,10 +57,16 @@
 
 -- Obtén los clientes que no tienen una orden asociada.
 
+    SELECT
+        customers.customerNumber, customers.customerName,
+        orders.customerNumber, orders.status
+    FROM
+        customers LEFT JOIN orders
+            ON customers.customerNumber = orders.customerNumber;
 
 
 -- Obtén el apellido de empleado, nombre de empleado, nombre de cliente, número de cheque y total, es decir, los clientes asociados a cada empleado.
-
+--  ¿Representan lo mismo ? cambia el contexto dado que la prioridad por encontrar valores en la tabla de la derecha toma prioridad sobre lo de la izquierda.
     SELECT
         employees.firstName, employees.lastname,
         customers.customerName,
