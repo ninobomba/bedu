@@ -1,1 +1,0 @@
-{"options":{},"indexes":[{"v":{"$numberInt":"2"},"key":{"_id":{"$numberInt":"1"}},"name":"_id_","ns":"sample_geospatial.shipwrecks"},{"v":{"$numberInt":"2"},"key":{"coordinates":"2dsphere"},"name":"coordinates_2dsphere","ns":"sample_geospatial.shipwrecks","background":true,"2dsphereIndexVersion":{"$numberInt":"3"}}],"uuid":"666cd2be57a04fc7be74adbb7570d0f8"}
