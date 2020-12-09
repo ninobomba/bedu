@@ -1,0 +1,1 @@
+{"options":{},"indexes":[{"v":{"$numberInt":"2"},"key":{"_id":{"$numberInt":"1"}},"name":"_id_","ns":"sample_training.grades"}],"uuid":"dbbfd1f80f6a47ec8665d65bf1e6e3e6"}
