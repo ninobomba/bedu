@@ -24,6 +24,8 @@ El ejercicio consiste en obtener todas las publicaciones que tengan 50 o más co
     {"address.country": "Brazil"}
 }
 
+{number_of_reviews: {$gte: 50}, "review_scores.review_scores_rating": {$gte: 80}, amenities: {$in: [/Ethernet/]}, "address.country_code": "BR" }
+
 Pipelines
 
 Exported
