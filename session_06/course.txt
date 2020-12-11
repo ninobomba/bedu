@@ -39,3 +39,19 @@ Exported
 }}, {$limit:
    1
 }]
+
+
+[{
+    $match: {
+        amenities: {
+            $in: ["Wifi", "Internet"]
+        }
+    }
+}, {
+    $group: {
+        _id: null,
+        total: {
+            $sum: 1
+        }
+    }
+}]
