@@ -1,0 +1,48 @@
+
+{
+  from: 'movies',
+  localField: 'movie_id',
+  foreignField: '_id',
+  as: 'pelicula'
+}
+
+$addFields
+{
+  pelicula_objeto: {$arrayElemAt: ["$pelicula",0]}
+}
+$addFields
+{
+  pelicula_nombre: "$pelicula_objeto.title"
+}
+$project
+{
+  _id:0,
+  pelicula_nombre:1,
+  name:1,
+  text:1
+}
+
+
+{
+  from: 'users',
+  localField: 'name',
+  foreignField: 'name',
+  as: 'usuario'
+}
+
+
+$addFields
+{
+  usuario_objeto: {$arrayElemAt: ["$usuario", 0]}
+}
+$addFields
+{
+  usuario_password: "$usuario_objeto.password"
+}
+$project
+{
+  _id:0,
+  name:1,
+  email:1,
+  usuario_password:1
+}
